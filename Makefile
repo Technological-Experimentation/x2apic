@@ -84,7 +84,7 @@ symlist:
 	${CC} -x c ${CFLAGS} -c sys/symlist.gen -o sys/symlist.o
 
 DISK = ./slate.img
-QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="tmp/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="tmp/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio
+QEMUFLAGS_RAW = --enable-kvm -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="tmp/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="tmp/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio
 QEMUFLAGS = $(QEMUFLAGS_RAW) -drive file=$(DISK)
 
 img: all ./tmp/limine.efi

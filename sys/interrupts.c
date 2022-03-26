@@ -144,7 +144,7 @@ void isr_handler(struct regs_t* regs) {
         asm volatile("hlt");
     }
 
-    lapic_write(0xb0, 0); // EOI
+    x2apic_write(0xb0, 0); // EOI
 }
 
 void register_handler(uint8_t int_no, int_handler_t handler) {

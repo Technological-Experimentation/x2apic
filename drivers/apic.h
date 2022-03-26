@@ -74,4 +74,8 @@ uint32_t redirect_gsi(uint32_t gsi, uint64_t ap, uint8_t irq, uint64_t flags);
 void init_lapic_timer();
 void init_apic();
 
+uint64_t x2apic_read(uint16_t offset);
+
+void x2apic_write(uint16_t offset, uint64_t val);
+
 #endif
